@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', createGame());
 let currentCards = [];
 
 function addCard(card){
+    console.log(currentCards.length);
     if(currentCards.length !== 0){
         currentCards[1] = card;
 
@@ -55,7 +56,7 @@ function addCard(card){
 }
 
 function showCardColor(card){
-    if(!currentCards.length || currentCards.length === 1){
+    if(!currentCards.length || currentCards.length === 1 && card !== currentCards[0]){
         card.style.backgroundColor = cardColor[card.id];
         addCard(card);
     }
@@ -64,7 +65,6 @@ function showCardColor(card){
 
 function turnCardsBack(currentCards){
     for(let card in currentCards){
-        console.log(card);
         currentCards[card].style.backgroundColor = 'grey';
     }
 }
